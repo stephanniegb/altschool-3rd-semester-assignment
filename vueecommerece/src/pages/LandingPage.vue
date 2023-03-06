@@ -17,7 +17,7 @@ import { ref, onMounted } from 'vue'
 const categories = ref([])
 const loading = ref(false)
 
-const fetchProducts = async () => {
+const fetchCategories = async () => {
     loading.value = true
     const endPoint = 'https://dummyjson.com/products/categories'
     const response = await fetch(endPoint)
@@ -26,7 +26,7 @@ const fetchProducts = async () => {
     loading.value = false
 }
 onMounted(() => {
-    fetchProducts()
+    fetchCategories()
 })
 
 </script>
