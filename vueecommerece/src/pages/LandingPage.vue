@@ -28,7 +28,6 @@ const fetchCategories = async () => {
 onMounted(() => {
     fetchCategories()
 })
-
 </script>
 
 <style lang="scss" scoped>

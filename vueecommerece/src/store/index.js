@@ -3,26 +3,18 @@ import router from '@/router'
 
 export default createStore({
   state: {
-    // currentUser: {email: 'stephanie@gmail', password: '123456'},
     newUser: {},
-    userDetail: {}
+    userDetails: {}
   },
   getters: {
-    // getCurrentuser: (state) => state.currentUser,
     getnewUser: (state) => state.newUser,
-    getUserDetails: (state) => state.userDetail
+    getUserDetails: (state) => state.userDetails
   },
   mutations: {
-    // setCurrentUser(state, payload) {
-    //   state.currentUser = payload
-    //   state.newUser.push(payload)
-    // },
     registerUser(state, payload) {
       state.newUser = payload
       localStorage.setItem('user', JSON.stringify(payload))
-      alert('come and seeee ooooooo')
       router.push('/products')
-      // state.newUser.push(payload)
     },
     loginUser(state, payload){
       state.userDetail = payload
@@ -32,7 +24,6 @@ export default createStore({
       }
       if(payload.email === registeredUser.email && payload.password === registeredUser.password){
         localStorage.setItem('loggedInToken', Date.now())
-        alert('logged in')
         router.push('/products')
       } else {
         alert('wrong email or password')
@@ -42,9 +33,8 @@ export default createStore({
     },
     logoutUser(state){
       state.newUser = {}
-      localStorage.removeItem('loggedInToken') //change to token
-      router.push('/')
-      alert('logged out')
+      localStorage.removeItem('loggedInToken') 
+      router.push('/landingpage')
     }
 
   },

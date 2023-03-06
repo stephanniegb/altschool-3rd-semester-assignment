@@ -1,10 +1,6 @@
 <template>
     
-    <div>
-        <!-- {{ products }} -->
-        
-
-    </div>
+    welcome - {{ userDetails.name }}
     <div v-for="product in products" :key="product.id">
         <h3>{{ product.title}}</h3>
         <figure>
@@ -23,20 +19,18 @@
     <figure>
         
     </figure>
-    <button @click="logoutUser">logout</button>
+    
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import {useStore, mapActions} from 'vuex'
-const store = useStore()
-mapActions(['logoutUser'])
-const logoutUser = () => {
-    store.commit('logoutUser')
+// import useExtractUser from '../composables/useExtractUser'
 
-}
+
 const products = ref([])
 const loading = ref(false)
+const userDetails = JSON.parse(localStorage.getItem('user'))
+console.log(userDetails);
 const fetchProducts = async () => {
     loading.value = true
     const endPoint = 'https://dummyjson.com/products'
@@ -48,8 +42,8 @@ const fetchProducts = async () => {
 onMounted(() => {
     fetchProducts()
 })
-
-
+// console.log(useExtractUser);
+// const {user} = useExtractUser(userDetails)
 </script>
 
 <style lang="scss" scoped>
