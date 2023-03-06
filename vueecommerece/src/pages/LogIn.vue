@@ -18,12 +18,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted} from 'vue'
+import { ref} from 'vue'
 import {useStore, mapActions} from 'vuex'
 const store = useStore()
 
 const userDetails = ref({})
 mapActions(['loginUser'])
+
+
 const loginUser = () => {
     store.commit('loginUser', userDetails.value)
 }
@@ -33,12 +35,12 @@ const loginUser = () => {
 //    }
 // })
 
-onMounted(() => {
-    userDetails.value = store.getters.getUserDetails
-})
+// onMounted(() => {
+//     userDetails.value = store.getters.getUserDetails
+// })
 
-const test = Array.from(document.querySelectorAll('*')).find(e => e.__vue_app__).__vue_app__.config.globalProperties.$store.state
-console.log(test);
+// const test = Array.from(document.querySelectorAll('*')).find(e => e.__vue_app__).__vue_app__.config.globalProperties.$store.state
+// console.log(test);
 </script>
 
 <style lang="scss" scoped>

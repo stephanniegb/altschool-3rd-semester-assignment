@@ -13,7 +13,10 @@ const routes = [
     {
         path: '/products',
         name: 'ProductsPage',
-        component: ProductsPage
+        component: ProductsPage,
+        meta: {
+            requiresAuth: true
+        }
     },
     {
         path: '/login',
@@ -27,5 +30,28 @@ const routes = [
     }
 ]
 
+
 const router = createRouter({history: createWebHistory(), routes})
+
+const isAuthenticated = () => !!localStorage.getItem('loggedInToken')
+const canUserAccess = (to) => {
+    if(!isAuthenticated() && to.meta.requiresAuth && to.name === 'ProductsPage'){
+        return false
+    }
+    return true
+}
+router.beforeEach(async (to) => {
+    const canAccess = canUserAccess(to)
+    if(!canAccess){
+        return{
+            name: 'LogIn'
+        }
+    }
+
+    if(to.name ==='LogIn' &&  isAuthenticated()){
+        return{
+            name: 'LandingPage'
+        }
+    }
+})
 export default router

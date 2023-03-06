@@ -23,12 +23,18 @@
     <figure>
         
     </figure>
-    
+    <button @click="logoutUser">logout</button>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import {useStore, mapActions} from 'vuex'
+const store = useStore()
+mapActions(['logoutUser'])
+const logoutUser = () => {
+    store.commit('logoutUser')
 
+}
 const products = ref([])
 const loading = ref(false)
 const fetchProducts = async () => {
