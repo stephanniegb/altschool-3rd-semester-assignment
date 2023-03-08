@@ -2,8 +2,10 @@
     <h2 v-if='loading'>loading....</h2>
     <section>
         <h2>Explore our categories</h2>
-        <div v-for="category in categories" :key="category">
+        <div class="categories_wrapper">
+            <div v-for="category in categories" :key="category" class="category">
             <h3>{{ category }} > </h3> 
+        </div>
         </div>
     </section>
     
@@ -30,6 +32,20 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+.categories_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.category{
+    padding: 2%;
+    border: 3px solid rgb(107, 118, 212);
+    width: 70%;
+}
+h2{
+    padding: 2%;
+}
 </style>

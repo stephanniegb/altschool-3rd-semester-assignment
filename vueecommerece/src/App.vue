@@ -1,9 +1,5 @@
 <template>
-  <header>
-    
-  </header>
   <RouterView />
-  <footer> contact us</footer>
 </template>
 
 <script>
