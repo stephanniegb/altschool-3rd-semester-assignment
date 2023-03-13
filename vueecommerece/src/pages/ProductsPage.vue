@@ -1,5 +1,9 @@
 <template>
+  <div className="loader_wrapper" v-if="loading">
+    <div class="loader"></div>
+  </div>
   <main class="container">
+    {{ productstest }}
     welcome - {{ userDetails.name }}
     <div class="product-container">
       <div v-for="product in products" :key="product.id" class="product">
@@ -9,11 +13,15 @@
           </div>
           <div>
             <figcaption>
-              <h3>{{ product.title }}</h3> - ${{ product.price }}
+              <h3>{{ product.title }}</h3>
+              - ${{ product.price }}
             </figcaption>
-            <!-- <figcaption>{{ product.description }}</figcaption>
-            <figcaption></figcaption> -->
-            <button class='view_button'>View</button>
+            <button
+              @click="$router.push(`/products/${product.id}`)"
+              class="view_button"
+            >
+              View
+            </button>
           </div>
         </figure>
       </div>
@@ -23,12 +31,18 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useStore, mapActions } from "vuex";
+const store = useStore();
 // import useExtractUser from '../composables/useExtractUser'
-
 const products = ref([]);
 const loading = ref(false);
 const userDetails = JSON.parse(localStorage.getItem("user"));
-console.log(userDetails);
+
+mapActions(["updateProducts"]);
+// const updateProducts = () => {
+//   store.commit('updateProducts', products.value)
+// }
+
 const fetchProducts = async () => {
   loading.value = true;
   const endPoint = "https://dummyjson.com/products";
@@ -36,17 +50,29 @@ const fetchProducts = async () => {
   const data = await response.json();
   products.value = data.products;
   loading.value = false;
+  store.commit("updateProducts", products.value);
 };
 onMounted(() => {
   fetchProducts();
 });
 // console.log(useExtractUser);
 // const {user} = useExtractUser(userDetails)
+
+const test = Array.from(document.querySelectorAll("*")).find(
+  (e) => e.__vue_app__
+).__vue_app__.config.globalProperties.$store.state;
+console.log(test);
 </script>
 
 <style scoped>
-.view_button{
-  background-color: #0076C8;
+.spinner {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.view_button {
+  background-color: #0076c8;
   border: none;
   color: white;
   border-radius: 5px;
@@ -58,18 +84,16 @@ onMounted(() => {
   margin: 4px 2px;
   cursor: pointer;
 }
-.container{
-    padding: 1%;
+.container {
+  padding: 1%;
 }
-.product{
-  
+.product {
   background-color: #ffffff;
   padding: 3%;
   border-radius: 5px;
 }
-figure div{
+figure div {
   margin-bottom: 1rem;
-
 }
 .product-container {
   display: grid;
@@ -79,7 +103,7 @@ figure div{
 img {
   max-height: 200px;
 }
-h3{
-    display: inline;
+h3 {
+  display: inline;
 }
 </style>

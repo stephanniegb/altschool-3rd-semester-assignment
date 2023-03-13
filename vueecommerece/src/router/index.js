@@ -5,6 +5,7 @@ import LogIn from "@/pages/LogIn.vue";
 import SignUp from "@/pages/SignUp.vue";
 import NotFound from "./NotFound.vue";
 import Dashboard from "@/layout/Dashboard.vue";
+import ProductView from '@/pages/ProductView.vue'
 
 const routes = [
   {
@@ -25,6 +26,14 @@ const routes = [
           requiresAuth: true,
         },
 
+      },
+      {
+        path: "/products/:id",
+        name:'ProductView',
+        component: ProductView,
+        meta: {
+          requiresAuth: true,
+        }
       }
     ],
   },
@@ -48,29 +57,24 @@ const routes = [
 const router = createRouter({ history: createWebHistory(), routes });
 
 const isAuthenticated = () => !!localStorage.getItem("loggedInToken");
-const canUserAccess = (to) => {
+const canUserAccess = (to,name) => {
   if (
     !isAuthenticated() &&
     to.meta.requiresAuth &&
-    to.name === "ProductsPage"
+    to.name === name
   ) {
     return false;
   }
   return true;
 };
 router.beforeEach(async (to) => {
-  const canAccess = canUserAccess(to);
-  if (!canAccess) {
+  const canAccess = canUserAccess(to , "ProductsPage");
+  const canAccess2 = canUserAccess(to, 'ProductView')
+  if (!canAccess || !canAccess2) {
     return {
       name: "LogIn",
     };
   }
-
-  // if(from.name === 'SignUp' && to.name === 'ProductsPage'){
-  //   return {
-  //     name: 'ProductsPage'
-  //   }
-  // }
 
   if (to.name === "LogIn" && isAuthenticated() || to.name === "SignUp" && isAuthenticated()) {
     return {

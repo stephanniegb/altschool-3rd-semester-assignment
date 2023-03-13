@@ -22,3 +22,57 @@
   a{
     text-decoration: none;
   }
+  .loader {
+    border: 3px solid #ffffff;
+    border-top: 3px solid rgb(107, 118, 212); 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .loader_wrapper{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* carousel */
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    /* height: 400px; */
+    /* margin-top: 8px; */
+  }
+  
+  .carousel > img {
+    max-width: 45%;
+    max-height: 400px;
+  }
+  
+  .carousel-smaller {
+    display: flex;
+    width: 50%;
+  }
+  
+  .carousel-smaller > img {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 2px solid #333;
+  }
+  
+  .carousel-smaller > img.active {
+    border-color: #333;
+    opacity: 0.6;
+  }
+  

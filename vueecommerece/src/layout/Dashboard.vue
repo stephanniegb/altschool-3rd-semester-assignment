@@ -17,12 +17,12 @@
         <div class="menu" v-if="isAuthenticated()">
           <li><router-link to="/landingpage">Home</router-link></li>
           <li><router-link to="/products">Products</router-link></li>
-          <li><button @click="logoutUser">logout</button></li>
+          <li @click="logoutUser"><span>Logout</span></li>
         </div>
       </ul>
     </nav>
   </header>
-
+<!-- <button @click="logoutUser">logout</button> -->
   <main>
     <RouterView />
   </main>
@@ -49,7 +49,7 @@ const isAuthenticated = () => localStorage.getItem("loggedInToken");
   align-items: center;
   justify-content: space-between;
   padding: 2%;
-  background-color: rgb(107, 118, 212);
+  background-color: #6b76d4;
 }
 .logo{
    color: #00243C;
@@ -61,9 +61,13 @@ const isAuthenticated = () => localStorage.getItem("loggedInToken");
   display: flex;
   gap: 1em;
   font-size: 1.5em;
+  color: #fff;
+}
+.menu span{
+  cursor: pointer;
 }
 .menu li:hover {
-  background-color: red;
+  background-color:  #9099f1;
   border-radius: 5px;
   transition: 0.3s ease;
 }
@@ -89,13 +93,13 @@ button{
   cursor: pointer;
 }
 button:hover{
-  background-color: red;
+  background-color: #9099f1;
 }
 @media(max-width: 768px){
   .menu{
     display: none;
     position: absolute;
-    background-color: teal;
+    background-color: #6b76d4;
     right: 0;
     left: 0;
     text-align: center;

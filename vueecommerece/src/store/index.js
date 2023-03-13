@@ -4,11 +4,17 @@ import router from '@/router'
 export default createStore({
   state: {
     newUser: {},
-    userDetails: {}
+    userDetails: {},
+    products: [],
+    // loading: false,
+    // error: null
   },
   getters: {
     getnewUser: (state) => state.newUser,
-    getUserDetails: (state) => state.userDetails
+    getUserDetails: (state) => state.userDetails,
+    getProductInfo: (state) => state.products,
+    // getLoading: (state) => state.loading,
+    // getError: (state) => state.error
   },
   mutations: {
     registerUser(state, payload) {
@@ -17,7 +23,7 @@ export default createStore({
       router.push('/products')
     },
     loginUser(state, payload){
-      state.userDetail = payload
+      state.userDetails = payload
       const registeredUser = JSON.parse(localStorage.getItem('user'))
       if(!registeredUser){
         alert('wrong email or password')
@@ -35,11 +41,29 @@ export default createStore({
       state.newUser = {}
       localStorage.removeItem('loggedInToken') 
       router.push('/landingpage')
+    },
+    updateProducts(state, payload){
+      state.products = payload
     }
 
   },
   actions: {
-    // async things
+    // async ['fetchProducts'] ({ commit }) {
+    //   const endPoint = "https://dummyjson.com/products";
+    //   try {
+    //     commit('loading', true);
+    //     const {response} = await fetch(endPoint);
+    //     commit('products', response);
+
+    //   }
+    //   catch (err){
+    //     commit('error', err);
+    //     throw err;
+    //   }
+    //   finally {
+    //     commit('loading', false);
+    //   }
+    // }
 
   }
 })
