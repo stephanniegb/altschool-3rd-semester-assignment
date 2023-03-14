@@ -5,8 +5,8 @@ import '@/style/main.css'
 import store from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faUserSecret} from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight} from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
-library.add(faUserSecret, faClock)
+library.add(faChevronRight, faClock)
 
 createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(store).use(router).mount('#app')

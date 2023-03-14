@@ -3,6 +3,7 @@
         <div class="loader"></div>
     </div> 
     <main>
+        <div class="hero_wrap">
         <section class="headings">
             <h4>Trade-in-offer</h4>
             <h1>Superb! deals</h1>
@@ -13,20 +14,21 @@
         <section id="hero">
             <img src="https://free-vectors.net/_ph/10/2/718462586.jpg" alt="hero_img">
         </section>
-    </main>
-    <main>
+    </div>
+    <div class="hero_wrap">
         <section id="hero2">
             <img src="https://free-vectors.net/_ph/1/2/696495084.jpg" alt="hero_img">
         </section>
-        <section class="headings">
-            <h4>Trade-in-offer</h4>
-            <h1>Superb! deals</h1>
-            <h2>On all products!</h2>
-            <p>save more with coupons and up to 20% off</p>
-            <router-link to="/products" class="btn">Shop Now!</router-link>
+        <section class="headings categories">
+            <h2>Explore our categories...</h2>
+            <div class="categories_wrapper">
+                <button v-for="category in categories" :key="category" class="category">
+                    {{ category }} <font-awesome-icon icon="fa-solid fa-chevron-right" />
+                </button>
+            </div>
         </section>
-    </main>
-    <main>
+    </div>
+    <div class="hero_wrap">
         <section class="headings">
             <h4>Trade-in-offer</h4>
             <h1>Superb! deals</h1>
@@ -37,7 +39,9 @@
         <section id="hero">
             <img src="https://free-vectors.net/_ph/1/2/319736785.jpg" alt="hero_img">
         </section>
+    </div>
     </main>
+    
     <!-- <section v-if="!loading">
         <h2>Explore our categories</h2>
         <div class="categories_wrapper">
@@ -68,12 +72,13 @@ onMounted(() => {
 </script>
 
 <style scoped>
-main{
+.hero_wrap{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 2%;
 }
+
 #hero{
     flex-basis: 50%;
 }
@@ -111,18 +116,30 @@ main{
 }
 
 .categories_wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+
 }
 .category{
     padding: 2%;
-    border: 3px solid rgb(107, 118, 212);
-    width: 70%;
+    border: 2px solid #131212;
+    font-family: 'Tilt Warp', cursive;
+    background-color: transparent;
+    font-size: .9em;
+    width: 150px;
+    height: 50px;
+}
+.category:hover{
+    background-color: #ffdb58;
+
+    cursor: pointer;
 }
 h2{
     padding: 2%;
+}
+.categories h2{
+    color: #D9042B;
+    font-size: 2em;
 }
 </style>

@@ -68,6 +68,7 @@ const isAuthenticated = () => localStorage.getItem("loggedInToken");
   /* background-color: #6b76d4; */
   background-color: #0D0D0D;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  position: sticky;
 }
 .logo{
    color: #6b76d4;
