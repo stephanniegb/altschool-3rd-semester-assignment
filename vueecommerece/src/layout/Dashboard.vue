@@ -3,20 +3,22 @@
   <header>
     <nav class="nav-container">
       <div>
-        <h1 class="logo">gOShop</h1>
+        <router-link to="/landingpage"><h1 class="logo">gOShop</h1></router-link>
       </div>
       <ul>
         <input type="checkbox" id="checkbox_toggle" />
         <label for="checkbox_toggle" class="hamburger">&#9776;</label>
         <div class="menu" v-if="!isAuthenticated()">
-          <li><router-link to="/landingpage">Home</router-link></li>
-          <li><router-link to="/products">Products</router-link></li>
-          <li><router-link to="/signup">Sign Up</router-link></li>
-          <li><router-link to="/login">Log In</router-link></li>
+          <li :class="isactive('/landingpage') ? 'active': ''"><router-link to="/landingpage">Home</router-link></li>
+          <li :class="isactive('/products') ? 'active': ''"><router-link to="/products">Products</router-link></li>
+          <li :class="isactive('#contact_us') ? 'active': ''"><a href="#contact_us">Contact</a></li>
+          <li :class="isactive('/signup') ? 'active': ''"><router-link to="/signup">Sign Up</router-link></li>
+          <li :class="isactive('/login') ? 'active': ''"><router-link to="/login">Log In</router-link></li>
         </div>
         <div class="menu" v-if="isAuthenticated()">
-          <li><router-link to="/landingpage">Home</router-link></li>
-          <li><router-link to="/products">Products</router-link></li>
+          <li :class="isactive('/landingpage') ? 'active': ''"><router-link to="/landingpage">Home</router-link></li>
+          <li :class="isactive('/products') ? 'active': ''"><router-link to="/products">Products</router-link></li>
+          <li :class="isactive('#contact_us') ? 'active': ''"><a href="#contact_us">Contact</a></li>
           <li @click="logoutUser"><span>Logout</span></li>
         </div>
       </ul>
@@ -27,13 +29,27 @@
     <RouterView />
   </main>
   <hr>
-  <footer> contact us</footer>
+  <footer id="contact_us"> contact us</footer>
 </template>
 
 <script setup>
 import { useStore, mapActions } from "vuex";
+import {  useRouter } from "vue-router";
+// const route = useRoute();
+const router = useRouter()
 
 const store = useStore();
+
+// const isactive = ref(false);
+const isactive = (to) => {
+  if (router.currentRoute.value.path === to) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+console.log(router.currentRoute.value.path)
 mapActions(["logoutUser"]);
 const logoutUser = () => {
   store.commit("logoutUser");
@@ -49,10 +65,14 @@ const isAuthenticated = () => localStorage.getItem("loggedInToken");
   align-items: center;
   justify-content: space-between;
   padding: 2%;
-  background-color: #6b76d4;
+  /* background-color: #6b76d4; */
+  background-color: #0D0D0D;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
 .logo{
-   color: #00243C;
+   color: #6b76d4;
+   font-family: 'Tilt Warp', cursive;
+   cursor: pointer;
 }
 .nav-container a{
   color: #fff;
@@ -60,20 +80,27 @@ const isAuthenticated = () => localStorage.getItem("loggedInToken");
 .menu{
   display: flex;
   gap: 1em;
-  font-size: 1.5em;
+  font-size: 1 em;
   color: #fff;
 }
 .menu span{
   cursor: pointer;
 }
 .menu li:hover {
-  background-color:  #9099f1;
-  border-radius: 5px;
+  /* background-color:  #9099f1; */
+  border-bottom: 2px solid #9099f1;
+  /* border-radius: 5px; */
   transition: 0.3s ease;
 }
 .menu li{
   padding: 5px 14px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #0D0D0D;
 }
+ .menu li.active{
+  border-bottom: 2px solid #9099f1;
+} 
+
 input[type=checkbox]{
   display: none;
 }
@@ -99,7 +126,7 @@ button:hover{
   .menu{
     display: none;
     position: absolute;
-    background-color: #6b76d4;
+    background-color: #0D0D0D;
     right: 0;
     left: 0;
     text-align: center;

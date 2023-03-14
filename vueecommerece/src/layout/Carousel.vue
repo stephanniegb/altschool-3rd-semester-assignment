@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div className="carousel">
-    <!-- <img :src="props.images[activeIndex]" alt="animal" /> -->
+    <img :src="props.images[activeIndex]" alt="animal" />
     <div className="carousel-smaller">
       <img @click="handleIndexClick" v-for="(image, index) in props.images"
       :key="index" :src="image" alt="product image" :data-index="index"/>
@@ -15,7 +15,8 @@ const activeIndex = ref(0);
 const props = defineProps({
   images: {
     type: Array,
-    required: true,
+    //eslint-disable-next-line
+    default:["http://pets-images.dev-apis.com/pets/none.jpg"]
   },
 });
 const handleIndexClick = (event) => {

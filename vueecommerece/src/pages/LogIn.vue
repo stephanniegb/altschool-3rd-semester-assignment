@@ -50,6 +50,7 @@ const store = useStore();
 const userDetails = ref({});
 mapActions(["loginUser"]);
 
+
 const loginUser = () => {
   store.commit("loginUser", userDetails.value);
 };
@@ -70,7 +71,7 @@ const loginUser = () => {
 <style scoped>
 main {
   display: flex;
-  background-color: rgb(17, 2, 2);
+  /* background-color: rgb(17, 2, 2); */
   align-items: center;
   justify-content: center;
   height: 100vh;

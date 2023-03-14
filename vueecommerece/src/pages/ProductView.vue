@@ -6,7 +6,7 @@
     <div>
       <Carousel :images="product.images" />
     </div>
-    <div>
+    <div class="Product-right">
       <p>{{ product.category }}</p>
       <h2>{{ product.brand }}</h2>
       <h1>{{ product.title }}</h1>
@@ -15,7 +15,7 @@
         ${{ product.discountPercentage }}% off this item! use code:NEWBIE200
       </p>
       Rating - {{ product.rating }}/10
-      <p>In stock {{ product.stock }}</p>
+      <p><font-awesome-icon icon="fa-regular fa-clock" /> <span>Only {{ product.stock }} left</span></p>
       <p>Delivery in 3-5 days</p>
       <p>Return Policy: 7 days</p>
       <p>Delivery Charges: Free</p>
@@ -96,5 +96,8 @@ img {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer
+}
+.Product-right {
+
 }
 </style>

@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Pacifico&family=Roboto&family=Tilt+Warp&display=swap');
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    background-color: #F7F5F8;
-    /* margin-top: 60px; */
-
+    /* background-color: #F7F5F8; */
+    background-color: #ffffff;
+  }
+  html{
+    scroll-behavior: smooth;
   }
   *{
     margin: 0;
@@ -46,10 +49,10 @@
   .carousel {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
-    /* align-items: center; */
-    /* height: 400px; */
-    /* margin-top: 8px; */
+  }
+  p{
+    color: #465b52;
+    margin: 15px 0 20px 0;
   }
   
   .carousel > img {
