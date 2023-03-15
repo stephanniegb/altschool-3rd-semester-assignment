@@ -13,15 +13,15 @@
           </div>
           <div>
             <figcaption>
-              <h3>{{ product.title }}</h3>
-              - ${{ product.price }}
+              <span>{{product.brand}}</span>
+              <h4>{{ product.title }}</h4>
+              <div class="star" >
+                <font-awesome-icon icon="fa-solid fa-star" v-for="i in Math.floor(product.rating)" :key="i"/>
+              </div>
+              <div><h5>${{ product.price }}</h5> <button @click="$router.push(`/products/${product.id}`)" class="view_button">View</button></div>
+               
             </figcaption>
-            <button
-              @click="$router.push(`/products/${product.id}`)"
-              class="view_button"
-            >
-              View
-            </button>
+            
           </div>
         </figure>
       </div>
@@ -39,9 +39,6 @@ const loading = ref(false);
 const userDetails = JSON.parse(localStorage.getItem("user"));
 
 mapActions(["updateProducts"]);
-// const updateProducts = () => {
-//   store.commit('updateProducts', products.value)
-// }
 
 const fetchProducts = async () => {
   loading.value = true;

@@ -40,7 +40,7 @@ export default createStore({
     logoutUser(state){
       state.newUser = {}
       localStorage.removeItem('loggedInToken') 
-      router.push('/landingpage')
+      router.push('/')
     },
     updateProducts(state, payload){
       state.products = payload

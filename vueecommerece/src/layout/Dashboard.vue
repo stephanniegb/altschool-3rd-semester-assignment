@@ -9,14 +9,14 @@
         <input type="checkbox" id="checkbox_toggle" />
         <label for="checkbox_toggle" class="hamburger">&#9776;</label>
         <div class="menu" v-if="!isAuthenticated()">
-          <li :class="isactive('/landingpage') ? 'active': ''"><router-link to="/landingpage">Home</router-link></li>
+          <li :class="isactive('/landingpage') ? 'active': ''"><router-link to="/">Home</router-link></li>
           <li :class="isactive('/products') ? 'active': ''"><router-link to="/products">Products</router-link></li>
           <li :class="isactive('#contact_us') ? 'active': ''"><a href="#contact_us">Contact</a></li>
           <li :class="isactive('/signup') ? 'active': ''"><router-link to="/signup">Sign Up</router-link></li>
           <li :class="isactive('/login') ? 'active': ''"><router-link to="/login">Log In</router-link></li>
         </div>
         <div class="menu" v-if="isAuthenticated()">
-          <li :class="isactive('/landingpage') ? 'active': ''"><router-link to="/landingpage">Home</router-link></li>
+          <li :class="isactive('/landingpage') ? 'active': ''"><router-link to="/">Home</router-link></li>
           <li :class="isactive('/products') ? 'active': ''"><router-link to="/products">Products</router-link></li>
           <li :class="isactive('#contact_us') ? 'active': ''"><a href="#contact_us">Contact</a></li>
           <li @click="logoutUser"><span>Logout</span></li>
@@ -24,7 +24,6 @@
       </ul>
     </nav>
   </header>
-<!-- <button @click="logoutUser">logout</button> -->
   <main>
     <RouterView />
   </main>

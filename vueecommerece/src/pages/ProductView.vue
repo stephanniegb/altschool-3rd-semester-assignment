@@ -28,11 +28,10 @@
 </template>
 
 <script setup>
-// import {useStore} from 'vuex'
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import Carousel from '@/layout/Carousel.vue'
-// const store = useStore()
+
 const route = useRoute();
 const product = ref([]);
 const loading = ref(false);
@@ -43,7 +42,7 @@ const fetchProductDetails = async () => {
   const data = await response.json();
   product.value = data;
   loading.value = false;
-  // store.commit('updateProducts', products.value)
+
 };
 onMounted(() => {
   fetchProductDetails();

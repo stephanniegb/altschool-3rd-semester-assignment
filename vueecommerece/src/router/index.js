@@ -9,12 +9,12 @@ import ProductView from "@/pages/ProductView.vue";
 
 const routes = [
   {
-    path: "/",
+    path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
     children: [
       {
-        path: "/landingpage",
+        path: "/",
         name: "LandingPage",
         component: LandingPage,
       },
