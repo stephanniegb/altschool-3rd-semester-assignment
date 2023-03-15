@@ -9,14 +9,14 @@
         <input type="checkbox" id="checkbox_toggle" />
         <label for="checkbox_toggle" class="hamburger">&#9776;</label>
         <div class="menu" v-if="!isAuthenticated()">
-          <li :class="isactive('/landingpage') ? 'active': ''"><router-link to="/">Home</router-link></li>
+          <li :class="isactive('/') ? 'active': ''"><router-link to="/">Home</router-link></li>
           <li :class="isactive('/products') ? 'active': ''"><router-link to="/products">Products</router-link></li>
           <li :class="isactive('#contact_us') ? 'active': ''"><a href="#contact_us">Contact</a></li>
           <li :class="isactive('/signup') ? 'active': ''"><router-link to="/signup">Sign Up</router-link></li>
           <li :class="isactive('/login') ? 'active': ''"><router-link to="/login">Log In</router-link></li>
         </div>
         <div class="menu" v-if="isAuthenticated()">
-          <li :class="isactive('/landingpage') ? 'active': ''"><router-link to="/">Home</router-link></li>
+          <li :class="isactive('/') ? 'active': ''"><router-link to="/">Home</router-link></li>
           <li :class="isactive('/products') ? 'active': ''"><router-link to="/products">Products</router-link></li>
           <li :class="isactive('#contact_us') ? 'active': ''"><a href="#contact_us">Contact</a></li>
           <li @click="logoutUser"><span>Logout</span></li>
@@ -28,7 +28,57 @@
     <RouterView />
   </main>
   <hr>
-  <footer id="contact_us"> contact us</footer>
+  <footer id="contact_us">
+    <div class=" col">
+      <h1 class="logo">gOShop</h1>
+      <h4>Contact</h4>
+      <p><strong>Address:</strong> Lorem ipsum Vitae natus marepellendus.</p>
+      <p><strong>Phone:</strong> +01 2222 365 / (+91) 01 2345 6789</p>
+      <p><strong>Hours:</strong> 10:00 - 18:00, Mon -Sat</p>
+      <div class="follow">
+        <h4>Follow Us</h4>
+        <div class="icons">
+          <a href="#"><font-awesome-icon icon="fa-brands fa-facebook-f" /></a>
+          <a href="#"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
+          <a href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
+          <a href="#"><font-awesome-icon icon="fa-brands fa-pinterest" /></a>
+          <a href="#"><font-awesome-icon icon="fa-brands fa-youtube" /></a>
+
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col">
+      <h4>About</h4>
+      <a href="#">About us</a>
+      <a href="#">Our Services</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Contact us</a>
+    </div>
+    <div class="col">
+      <h4>Help</h4>
+      <a href="#">FAQ</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+      <a href="#">Order Status</a>
+      <a href="#">Payment Options</a>
+    </div>
+    <div class="col install">
+      <h4>Install App</h4>
+      <p>from App store or Google play</p>
+      <div class="row">
+        <img src="" alt="">
+        <img src="" alt="">
+      </div>
+      <p>Secure Payment Gateways</p>
+      <div class="pay_row">
+        <img src="" alt="">
+    </div>
+    </div>
+  </footer>
 </template>
 
 <script setup>

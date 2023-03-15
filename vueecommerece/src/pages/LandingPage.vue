@@ -1,7 +1,4 @@
 <template>
-  <!-- <div className="loader_wrapper" v-if="loading">
-    <div class="loader"></div>
-  </div> -->
   <main>
     <div class="hero_wrap">
       <section class="headings">
@@ -12,13 +9,14 @@
         <router-link to="/products" class="btn">Shop Now!</router-link>
       </section>
       <section id="hero">
-        <img
+        <!-- <img
           src="https://free-vectors.net/_ph/10/2/718462586.jpg"
           alt="hero_img"
-        />
+        /> -->
+        <img src="../../assets/pexels-sora-shimazaki-5935744(4).jpg" alt="">
       </section>
     </div>
-    <div class="features_div">
+    <div>
       <h2>Features</h2>
       <div class="features_wrapper">
         <div class="feature">
@@ -73,10 +71,11 @@
     </div>
     <div class="hero_wrap">
       <section id="hero2">
-        <img
+        <!-- <img
           src="https://free-vectors.net/_ph/1/2/696495084.jpg"
           alt="hero_img"
-        />
+        /> -->
+        <img src="../../assets/pexels-kindel-media-6868619.jpg" alt="">
       </section>
       <div className="headings categories" v-if="loading">
         <div class="loader"></div>
@@ -96,8 +95,35 @@
         </div>
       </section>
     </div>
-    <div>
-        <h2>Featured products</h2>
+    <div class="top_deals">
+      <h2>Top deals</h2>
+      <div class="product-container">
+      <div v-for="product in products" :key="product.id" class="product" @click="$router.push(`/products/${product.id}`)">
+        <figure>
+          <div class="img_div">
+            <img :src="product.thumbnail" :alt="product.title" />
+          </div>
+          <div>
+            <figcaption>
+              <span>{{product.brand}}</span>
+              <h4>{{ product.title }}</h4>
+              <div class="star" >
+                <font-awesome-icon icon="fa-solid fa-star" v-for="i in Math.floor(product.rating)" :key="i"/>
+              </div>
+              <div class="price_div">
+                <h5>${{ product.price }}</h5> <button @click="$router.push(`/products/${product.id}`)" class="view_button">
+                  Shop
+                  <font-awesome-icon icon="fa-solid fa-shopping-cart" />
+                </button>
+              </div>
+            </figcaption>
+            
+          </div>
+        </figure>
+      </div>
+      </div>
+      
+      <!-- <img src="../../assets/17973858.jpg" alt="" style="height: 200px;"/> -->
     </div>
     <div class="hero_wrap">
       <section class="headings">
@@ -108,10 +134,11 @@
         <router-link to="/products" class="btn">Shop Now!</router-link>
       </section>
       <section id="hero">
-        <img
+        <!-- <img
           src="https://free-vectors.net/_ph/1/2/319736785.jpg"
           alt="hero_img"
-        />
+        /> -->
+        <img src="../../assets/pexels-borko-manigoda-1778412.jpg" alt="">
       </section>
     </div>
   </main>
@@ -121,14 +148,19 @@
 import { ref, onMounted } from "vue";
 
 const categories = ref([]);
+const products = ref([])
 const loading = ref(false);
 
 const fetchCategories = async () => {
   loading.value = true;
   const endPoint = "https://dummyjson.com/products/categories";
+  const endPoint2 = "https://dummyjson.com/products/category/smartphones"
   const response = await fetch(endPoint);
+  const res = await fetch(endPoint2)
   const data = await response.json();
+  const resData = await res.json()
   categories.value = data;
+  products.value = resData.products.slice(1,6)
   loading.value = false;
 };
 onMounted(() => {
@@ -152,7 +184,13 @@ onMounted(() => {
   border-top-left-radius: 40%;
 }
 #hero2 {
-  flex-basis: 50%;
+  flex-basis: 45%;
+}
+
+#hero2 img{
+  border-end-end-radius: 40%;
+  border-top-left-radius: 40%;
+  
 }
 .headings {
   flex-basis: 50%;
@@ -184,6 +222,11 @@ onMounted(() => {
 }
 .headings p {
   color: rgb(121, 117, 117);
+}
+.top_deals h2{
+  font-size: 2em;
+  font-weight: 800;
+
 }
 .headings .btn {
   padding: 3%;
