@@ -5,8 +5,42 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    /* background-color: #F7F5F8; */
     background-color: #ffffff;
+  }
+
+  /* main{
+    background-image: url('../../assets/pexels-sora-shimazaki-5935744\(4\).jpg');
+    background-size: contain;
+  } */
+  .banner{
+    background-image: url('../../assets/17973858.jpg');
+    background-size: contain;
+    /* background-repeat: no-repeat; */
+  }
+  @media(max-width:481px){
+    .banner{
+      background-repeat: no-repeat;
+    }
+    .hero_1{
+      background-image: url('../../assets/pexels-sora-shimazaki-5935744\(4\).jpg');
+      background-size: contain;
+      width: 100%;
+    }
+    
+  }
+  @media (max-width: 768px){
+    .hero_1{
+      background-image: url('../../assets/pexels-sora-shimazaki-5935744\(4\).jpg');
+      background-size: cover;
+      width: 100%;
+    }
+    .banner{
+      background-repeat: no-repeat;
+    }
+
+    .hero_1 img{
+      display: none;
+    }
   }
   html{
     scroll-behavior: smooth;

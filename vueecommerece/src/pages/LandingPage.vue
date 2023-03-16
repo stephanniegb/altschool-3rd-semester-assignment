@@ -1,9 +1,9 @@
 <template>
   <main>
-    <div class="hero_wrap">
+    <div class="hero_wrap hero_1">
       <section class="headings">
         <h4>Trade-in-offer</h4>
-        <h1>Superb! deals</h1>
+        <h1>Amazing deals!</h1>
         <h2>On all products!</h2>
         <p>save more with coupons and up to 20% off</p>
         <router-link to="/products" class="btn">Shop Now!</router-link>
@@ -95,7 +95,15 @@
         </div>
       </section>
     </div>
-    <div class="top_deals">
+    <div class="banner" style="height: 200px;">
+      <h4>NEW ARRIVALS SUPER SALES!!!!!</h4>
+      <h4>UP TO 45% OFF</h4>
+
+    </div>
+    <div className="headings categories" v-if="loading">
+        <div class="loader"></div>
+      </div>
+    <div class="top_deals" v-else-if="!loading">
       <h2>Top deals</h2>
       <div class="product-container">
       <div v-for="product in products" :key="product.id" class="product" @click="$router.push(`/products/${product.id}`)">
@@ -127,9 +135,7 @@
     </div>
     <div class="hero_wrap">
       <section class="headings">
-        <h4>Trade-in-offer</h4>
-        <h1>Superb! deals</h1>
-        <h2>On all products!</h2>
+        <h2>Explore our best offers...</h2>
         <p>save more with coupons and up to 20% off</p>
         <router-link to="/products" class="btn">Shop Now!</router-link>
       </section>
@@ -215,6 +221,17 @@ onMounted(() => {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 1rem;
 }
+.banner{
+  color:#d9042b;
+  display: flex;
+  /* flex-direction: column; */
+  align-content: center;
+  justify-content: center;
+}
+.banner h4{
+  padding: 4%;
+  font-size: 2.3em;
+}
 .headings h1 {
   color: #6b76d4;
   font-size: 4em;
@@ -268,5 +285,32 @@ h2 {
 .categories h2 {
   color: #d9042b;
   font-size: 2em;
+}
+@media(max-width:481px){
+  
+}
+@media (max-width: 768px){
+  .hero_wrap{
+    /* background-image: url('../../assets/17973858.jpg'); */
+    background-repeat: no-repeat;
+    background-color: transparent;
+  }
+  .banner h4{
+    font-size: 1.5rem;
+  }
+  .headings{
+    /* flex-basis: 100%; */
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .headings h1{
+    font-size: 2.5em;
+  }
+  .features_wrapper{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .categories_wrapper{
+    grid-template-columns: 1fr 1fr;
+  }
 }
 </style>
