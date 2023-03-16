@@ -17,7 +17,26 @@
     background-size: contain;
     /* background-repeat: no-repeat; */
   }
-  @media(max-width:481px){
+  .hero_1{
+    background-image: url('../../assets/pexels-sora-shimazaki-5935744\(4\).jpg');
+    background-size: cover;
+    width: 100%;
+  }
+  .hero_2{
+    background-image: url('../../assets/pexels-kindel-media-6868619.jpg');
+    background-size: cover;
+    width: 100%;
+
+  }
+  .banner{
+    /* background-repeat: no-repeat; */
+  }
+
+  .hero_1 img{
+    display: none;
+  }
+  
+  /* @media(max-width:481px){
     .banner{
       background-repeat: no-repeat;
     }
@@ -27,8 +46,8 @@
       width: 100%;
     }
     
-  }
-  @media (max-width: 768px){
+  } */
+  /* @media (max-width: 768px){
     .hero_1{
       background-image: url('../../assets/pexels-sora-shimazaki-5935744\(4\).jpg');
       background-size: cover;
@@ -41,7 +60,7 @@
     .hero_1 img{
       display: none;
     }
-  }
+  } */
   html{
     scroll-behavior: smooth;
   }

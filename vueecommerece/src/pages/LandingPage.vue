@@ -134,7 +134,7 @@
       <!-- <img src="../../assets/17973858.jpg" alt="" style="height: 200px;"/> -->
     </div>
     <div class="hero_wrap">
-      <section class="headings">
+      <section class="headings" id="hero_3">
         <h2>Explore our best offers...</h2>
         <p>save more with coupons and up to 20% off</p>
         <router-link to="/products" class="btn">Shop Now!</router-link>
@@ -152,11 +152,9 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-
 const categories = ref([]);
 const products = ref([])
 const loading = ref(false);
-
 const fetchCategories = async () => {
   loading.value = true;
   const endPoint = "https://dummyjson.com/products/categories";
@@ -177,36 +175,59 @@ onMounted(() => {
 <style scoped>
 .hero_wrap {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  /* background-repeat: no-repeat;
+  background-color: transparent; */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
   padding: 2%;
+}
+.hero_wrap img{
+  /* height: 200px; */
+  
+}
+.hero_1{
+  background-image: url('../../assets/pexels-sora-shimazaki-5935744\(4\).jpg');
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+
 }
 
 #hero {
-  flex-basis: 50%;
+  /* flex-basis: 50%; */
 }
 #hero img {
-  border-end-end-radius: 40%;
-  border-top-left-radius: 40%;
+  /* border-end-end-radius: 40%; */
+  /* border-top-left-radius: 40%; */
 }
 #hero2 {
-  flex-basis: 45%;
+  /* flex-basis: 45%; */
 }
-
 #hero2 img{
-  border-end-end-radius: 40%;
-  border-top-left-radius: 40%;
+  /* border-end-end-radius: 40%; */
+  /* border-top-left-radius: 40%; */
   
 }
 .headings {
   flex-basis: 50%;
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  gap: 0.7rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#hero_3{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.7rem;
+
 }
-.features_div h2{
+ .features_div h2{
     font-size: 2em;
     font-weight: 800;
 }
@@ -215,36 +236,40 @@ onMounted(() => {
     font-size: 2em;
     font-family: "Fugaz One", cursive;
     color: #6b76d4;
-}
-.features_wrapper {
+} 
+ .features_wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 }
-.banner{
+.feature p{
+  font-size: .8em;
+}
+ .banner{
   color:#d9042b;
-  display: flex;
+  display: flex; 
   /* flex-direction: column; */
-  align-content: center;
+   align-content: center;
   justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .banner h4{
-  padding: 4%;
-  font-size: 2.3em;
-}
-.headings h1 {
+    font-size: 1.5rem;
+  }
+ .headings h1 {
   color: #6b76d4;
-  font-size: 4em;
+  font-size: 2.5em;
   font-family: "Fugaz One", cursive;
 }
 .headings p {
   color: rgb(121, 117, 117);
 }
-.top_deals h2{
+/*.top_deals h2{
   font-size: 2em;
   font-weight: 800;
-
-}
+}*/
 .headings .btn {
   padding: 3%;
   background-color: #ffdb58;
@@ -258,8 +283,7 @@ onMounted(() => {
   background-color: #6b76d4;
   color: #ffdb58;
 }
-
-.categories_wrapper {
+/* .categories_wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1rem;
@@ -272,43 +296,87 @@ onMounted(() => {
   font-size: 0.9em;
   width: 150px;
   height: 50px;
-}
-.category:hover {
+} */
+/* .category:hover {
   background-color: #ffdb58;
   box-shadow: 10px 10px 0px #d0d0d0;
-  cursor: pointer;
+  cursor: pointer; */
   /* color: #6b76d4; */
-}
-h2 {
+/* } */
+/* h2 {
   padding: 2%;
 }
 .categories h2 {
   color: #d9042b;
   font-size: 2em;
+} */
+
+@media (min-width: 961px){
+  .hero_1 img{
+    display: block;
+  }
+  .hero_1{ 
+    display: flex;
+    background-image: none;
+    /* background-image: url('../../assets/17973858.jpg'); */
+    flex-direction: row;
+    justify-content: space-between; 
+    
+    
+  }
+  .hero_wrap {
+  display: flex;
+  flex-direction: row;
+  /* background-repeat: no-repeat;
+  background-color: transparent; */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  padding: 2%;
+  }
+  #hero {
+  flex-basis: 50%;
 }
-@media(max-width:481px){
+#hero img {
+  border-end-end-radius: 40%;
+  border-top-left-radius: 40%;
+}
+#hero2 {
+  flex-basis: 45%;
+}
+#hero2 img{
+  border-end-end-radius: 40%;
+  border-top-left-radius: 40%;
   
 }
-@media (max-width: 768px){
-  .hero_wrap{
-    /* background-image: url('../../assets/17973858.jpg'); */
-    background-repeat: no-repeat;
-    background-color: transparent;
-  }
-  .banner h4{
-    font-size: 1.5rem;
-  }
+.features_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  
+}
+.feature p{
+  font-size: 1em;
+}
+.banner{
+  background-repeat: repeat;
+}
+.banner h4{
+  padding: 4%;
+  font-size: 2.3em;
+} 
+ 
   .headings{
     /* flex-basis: 100%; */
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
   }
   .headings h1{
-    font-size: 2.5em;
+    font-size: 4em;
   }
-  .features_wrapper{
+  /* .features_wrapper{
     grid-template-columns: 1fr 1fr 1fr;
-  }
+  } */
   .categories_wrapper{
     grid-template-columns: 1fr 1fr;
   }

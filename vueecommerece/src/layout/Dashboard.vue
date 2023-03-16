@@ -3,9 +3,7 @@
   <header>
     <nav class="nav-container">
       <div>
-        <router-link to="/landingpage"
-          ><h1 class="logo">gOShop</h1></router-link
-        >
+        <router-link to="/"><h1 class="logo">gOShop</h1></router-link>
       </div>
       <ul>
         <input type="checkbox" id="checkbox_toggle" />
@@ -126,145 +124,148 @@ const isAuthenticated = () => localStorage.getItem("loggedInToken");
 // console.log(isAuthenticated());
 </script>
 
+
+
 <style scoped>
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2%;
-  /* background-color: #6b76d4; */
-  background-color: #0d0d0d;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-  position: sticky;
-}
-.logo {
-  color: #6b76d4;
-  font-family: "Tilt Warp", cursive;
-  cursor: pointer;
-}
-.nav-container a {
-  color: #fff;
-}
-.menu {
-  display: flex;
-  gap: 1em;
-  font-size: 1 em;
-  color: #fff;
-}
-.menu span {
-  cursor: pointer;
-}
-.menu li:hover {
-  /* background-color:  #9099f1; */
-  border-bottom: 2px solid #9099f1;
-  /* border-radius: 5px; */
-  transition: 0.3s ease;
-}
-.menu li {
-  padding: 5px 14px;
-  box-sizing: border-box;
-  border-bottom: 2px solid #0d0d0d;
-}
-.menu li.active {
-  border-bottom: 2px solid #9099f1;
-}
-
-input[type="checkbox"] {
-  display: none;
-}
-.hamburger {
-  display: none;
-  font-size: 24px;
-  user-select: none;
-}
-button {
-  background-color: rgb(107, 118, 212);
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 24px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #9099f1;
-}
-@media(max-width:481px){
-
-}
-@media (max-width: 768px) {
-  footer p{
-    font-size: .9em;
-
-  }
-}
-  .menu {
-    display: none;
-    position: absolute;
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2%;
+    /* background-color: #6b76d4; */
     background-color: #0d0d0d;
-    right: 0;
-    left: 0;
-    text-align: center;
-    padding: 16px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    position: sticky;
+  }
+  .logo {
+    color: #6b76d4;
+    font-family: "Tilt Warp", cursive;
+    cursor: pointer;
+  }
+  .nav-container a {
+    color: #fff;
+  }
+  .menu {
+    display: flex;
+    gap: 1em;
+    font-size: 1 em;
+    color: #fff;
+  }
+  .menu span {
+    cursor: pointer;
+  }
+  .menu li:hover {
+    /* background-color:  #9099f1; */
+    border-bottom: 2px solid #9099f1;
+    /* border-radius: 5px; */
+    transition: 0.3s ease;
+  }
+  .menu li {
+    padding: 5px 14px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #0d0d0d;
+  }
+  .menu li.active {
+    border-bottom: 2px solid #9099f1;
+  }
+  
+  input[type="checkbox"] {
+    display: none;
   }
   .hamburger {
-    display: block;
+    display: none;
+    font-size: 24px;
+    user-select: none;
   }
-  input[type="checkbox"]:checked ~ .menu {
-    display: block;
+  button {
+    background-color: rgb(107, 118, 212);
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
   }
-
-footer .info{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-}
-footer .col {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2%;
-}
-footer .follow{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2%;
-
-}
-footer a:hover{
-  color: #626bb9;
-}
-footer strong{
-  color: #2c3e50;
-  padding: .5em;
-}
-footer p{
-  /* font-size: 1em; */
-  margin: 0 0 .5em 0; 
-  color: #9c9797;
-}
-footer a{
-  text-decoration: none;
-  font-size: 1em;
-  margin: 0 1em 1em 0;
-  color: #9c9797;
-}
-footer .logo{
-  margin-bottom: 4%;
+  button:hover {
+    background-color: #9099f1;
+  }
+  @media(max-width:481px){
   
-}
-footer h4{
-  font-size: 1.2em;
-  margin-bottom: 8%;
-}
-footer .row .install img{
-  border: 1px solid #0d0d0d;
-  border-radius: 5px;
-}
-foooter .install{
-  margin: 10px 0 15px 0;
-}
-</style>
+  }
+  @media (max-width: 768px) {
+    footer p{
+      font-size: .9em;
+  
+    }
+    .menu {
+      display: none;
+      position: absolute;
+      background-color: #0d0d0d;
+      right: 0;
+      left: 0;
+      text-align: center;
+      padding: 16px 0;
+    }
+    .hamburger {
+      display: block;
+    }
+    input[type="checkbox"]:checked ~ .menu {
+      display: block;
+    }
+  }
+    
+  
+  footer .info{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2%;
+  }
+  footer .follow{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2%;
+  
+  }
+  footer a:hover{
+    color: #626bb9;
+  }
+  footer strong{
+    color: #2c3e50;
+    padding: .5em;
+  }
+  footer p{
+    /* font-size: 1em; */
+    margin: 0 0 .5em 0; 
+    color: #9c9797;
+  }
+  footer a{
+    text-decoration: none;
+    font-size: 1em;
+    margin: 0 1em 1em 0;
+    color: #9c9797;
+  }
+  footer .logo{
+    margin-bottom: 4%;
+    
+  }
+  footer h4{
+    font-size: 1.2em;
+    margin-bottom: 8%;
+  }
+  footer .row .install img{
+    border: 1px solid #0d0d0d;
+    border-radius: 5px;
+  }
+  foooter .install{
+    margin: 10px 0 15px 0;
+  }
+  </style>
