@@ -2,6 +2,7 @@
   <main>
     <div class="container">
       <h1>Login</h1>
+      <p v-if="isWrong" id="wrong" >Wrong email or password</p>
       <form @submit.prevent="loginUser">
         <div class="text-field">
           <label>
@@ -43,17 +44,17 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useStore, mapActions } from "vuex";
+import { ref, computed} from "vue";
+import { useStore, mapActions} from "vuex";
 const store = useStore();
 
 const userDetails = ref({});
 mapActions(["loginUser"]);
 
-
 const loginUser = () => {
   store.commit("loginUser", userDetails.value);
 };
+const isWrong = computed(() => store.state.isWrong);
 </script>
 
 <style scoped>
@@ -62,6 +63,11 @@ main {
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+#wrong{
+  color: #d9042b;
+  line-height: 1.5;
+  letter-spacing: 2;
 }
 .container {
   width: 80%;

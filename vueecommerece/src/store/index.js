@@ -6,6 +6,7 @@ export default createStore({
     newUser: {},
     userDetails: {},
     products: [],
+    isWrong: false
   },
   getters: {
     getnewUser: (state) => state.newUser,
@@ -22,13 +23,13 @@ export default createStore({
       state.userDetails = payload
       const registeredUser = JSON.parse(localStorage.getItem('user'))
       if(!registeredUser){
-        alert('wrong email or password')
+        state.isWrong = true
       }
       if(payload.email === registeredUser.email && payload.password === registeredUser.password){
         localStorage.setItem('loggedInToken', Date.now())
         router.push('/products')
       } else {
-        alert('wrong email or password')
+        state.isWrong = true
       }
       
 
