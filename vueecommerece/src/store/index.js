@@ -6,15 +6,11 @@ export default createStore({
     newUser: {},
     userDetails: {},
     products: [],
-    // loading: false,
-    // error: null
   },
   getters: {
     getnewUser: (state) => state.newUser,
     getUserDetails: (state) => state.userDetails,
     getProductInfo: (state) => state.products,
-    // getLoading: (state) => state.loading,
-    // getError: (state) => state.error
   },
   mutations: {
     registerUser(state, payload) {
@@ -47,23 +43,5 @@ export default createStore({
     }
 
   },
-  actions: {
-    // async ['fetchProducts'] ({ commit }) {
-    //   const endPoint = "https://dummyjson.com/products";
-    //   try {
-    //     commit('loading', true);
-    //     const {response} = await fetch(endPoint);
-    //     commit('products', response);
-
-    //   }
-    //   catch (err){
-    //     commit('error', err);
-    //     throw err;
-    //   }
-    //   finally {
-    //     commit('loading', false);
-    //   }
-    // }
-
-  }
+  actions: {}
 })

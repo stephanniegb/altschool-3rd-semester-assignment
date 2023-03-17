@@ -54,30 +54,17 @@ mapActions(["loginUser"]);
 const loginUser = () => {
   store.commit("loginUser", userDetails.value);
 };
-// const currentUser = computed(() => {
-//    if(userDetails.value) {
-//        return userDetails.value
-//    }
-// })
-
-// onMounted(() => {
-//     userDetails.value = store.getters.getUserDetails
-// })
-
-// const test = Array.from(document.querySelectorAll('*')).find(e => e.__vue_app__).__vue_app__.config.globalProperties.$store.state
-// console.log(test);
 </script>
 
 <style scoped>
 main {
   display: flex;
-  /* background-color: rgb(17, 2, 2); */
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
 .container {
-  width: 50%;
+  width: 80%;
   border-radius: 5px;
   border: 2px solid #131212;
 }

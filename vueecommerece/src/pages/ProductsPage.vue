@@ -36,7 +36,6 @@
 import { ref, onMounted } from "vue";
 import { useStore, mapActions } from "vuex";
 const store = useStore();
-// import useExtractUser from '../composables/useExtractUser'
 const products = ref([]);
 const loading = ref(false);
 const userDetails = JSON.parse(localStorage.getItem("user"));
@@ -55,13 +54,6 @@ const fetchProducts = async () => {
 onMounted(() => {
   fetchProducts();
 });
-// console.log(useExtractUser);
-// const {user} = useExtractUser(userDetails)
-
-// const test = Array.from(document.querySelectorAll("*")).find(
-//   (e) => e.__vue_app__
-// ).__vue_app__.config.globalProperties.$store.state;
-// console.log(test);
 </script>
 
 <style scoped>
@@ -72,7 +64,6 @@ onMounted(() => {
   align-items: center;
 }
 figure{
-  /* display: flex; */
   flex-direction: column;
   justify-content: space-between;
 }
@@ -87,7 +78,6 @@ figure{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  /* margin: 4px 2px; */
   cursor: pointer;
 }
 .view_button:hover{
@@ -110,9 +100,6 @@ figure{
 .product:hover {
   box-shadow: 5px 5px 5px rgba(233, 223, 223, 0.918);
   transition: all 0.2s ease-in-out;
-}
-figure div {
-  /* margin-bottom: 1rem; */
 }
 figcaption{
   display: flex;

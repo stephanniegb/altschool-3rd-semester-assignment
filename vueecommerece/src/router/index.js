@@ -46,20 +46,8 @@ const routes = [
         component: NotFound,
       },
     ],
+  
   },
-  // {
-  //   path: "/login",
-  //   name: "LogIn",
-  //   component: LogIn,
-  // },
-  // {
-
-  // },
-  // {
-  //   path: "/:pathMatch(.*)*",
-  //   name: "NotFound",
-  //   component: NotFound,
-  // },
 ];
 
 const router = createRouter({ history: createWebHistory(), routes });

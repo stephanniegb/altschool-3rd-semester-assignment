@@ -82,7 +82,7 @@ main {
   height: 100vh;
 }
 .container {
-  width: 80%;
+  width: 90%;
   border: 2px solid #131212;
   border-radius: 5px;
 }
