@@ -1,4 +1,4 @@
-# AltSchool Second Semester Exam Project
+# AltSchool Third Semester Exam Project
 
 This is a solution to the [Github Portfoilio question](https://docs.google.com/document/d/1RX0CiO2wIPs7Ct0aaGfUdxA7UesYM1atQpw_cCeHL3o/edit)
 
