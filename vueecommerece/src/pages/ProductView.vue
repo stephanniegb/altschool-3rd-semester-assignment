@@ -2,7 +2,6 @@
   <div className="loader_wrapper" v-if="loading">
     <div class="loader"></div>
   </div>
-  <!-- {{ productsYouMightLike }} -->
   <section class="productView">
     <Carousel :images="product.images" />
     <div class="pro_details">
@@ -69,11 +68,9 @@ import Carousel from "@/layout/Carousel.vue";
 const route = useRoute();
 const rating = ref([]);
 const product = ref([]);
-// const productsYouMightLike = ({})
+
 const count = ref(0);
 const loading = ref(false);
-// const isLoading = ref(false)
-
 const increament = () => {
   if (count.value < product.value.stock) {
     count.value++;
@@ -98,31 +95,11 @@ const fetchProductDetails = async () => {
   const data = await response.json();
   product.value = data;
   looper(product.value.rating);
-  // console.log(product.value.category);
-  
   loading.value = false;
 };
-// const fetchCproducts = async () => {
-//   isLoading.value = true
-//   const end = `https://dummyjson.com/products/1`
-//   const res = fetch(end)
-//   const data = await res.json()
-//   productsYouMightLike.value = data
-//   isLoading.value = false
 
-// }
-// const fetchProducts = async () => {
-//   isLoading.value = true
-//   // const endPoint = `https://dummyjson.com/products/category/${category}`
-//   const endPoint = 'https://dummyjson.com/products/category/smartphones'
-//   const res = await fetch(endPoint)
-//   const resData = await res.json()
-//   productsYouMightLike.values = resData
-//   isLoading.value = false
-// }
 onMounted(() => {
   fetchProductDetails();
-  // fetchCproducts()
 });
 // console.log(product.value);
 // const test = Array.from(document.querySelectorAll('*')).find(e => e.__vue_app__).__vue_app__.config.globalProperties.$store.state
@@ -139,7 +116,6 @@ main {
 }
 .productView {
   display: grid;
-  /* grid-template-rows:1fr 1fr; */
   gap: .8rem;
   padding: 1%;
 }
@@ -148,11 +124,7 @@ main {
   flex-direction: column;
   gap: .5rem;
   align-items: center;
-  /* border: 1px solid #131212; */
   padding: 1%;
-}
-.pro_details h5{
-  /* padding-bottom: 2% ; */
 }
 .pro_details #brandh5{
   color: #494747;
@@ -233,14 +205,9 @@ img {
   border-radius: 5px;
   width: 6em;
   height: 3.5em;
-  /* width: 100px;
-  height: 50px; */
-  /* padding: 2% 3%; */
-  /* text-align: center; */
   text-decoration: none;
   display: inline-block;
-  /* font-size: 16px; */
-  /* margin: 4px 2px; */
+  
 }
 .btn_div button:hover{
   background-color: #6b76d4;
