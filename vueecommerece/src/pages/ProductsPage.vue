@@ -58,10 +58,10 @@ onMounted(() => {
 // console.log(useExtractUser);
 // const {user} = useExtractUser(userDetails)
 
-const test = Array.from(document.querySelectorAll("*")).find(
-  (e) => e.__vue_app__
-).__vue_app__.config.globalProperties.$store.state;
-console.log(test);
+// const test = Array.from(document.querySelectorAll("*")).find(
+//   (e) => e.__vue_app__
+// ).__vue_app__.config.globalProperties.$store.state;
+// console.log(test);
 </script>
 
 <style scoped>
@@ -72,7 +72,7 @@ console.log(test);
   align-items: center;
 }
 figure{
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: space-between;
 }
@@ -125,11 +125,14 @@ figcaption span{
   color: #d4d4d4;
   font-size: .9em;
 }
-.product-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 2rem;
-  padding: 2%;
+@media (min-width: 961px) {
+  .product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 2%;
+  }
+
 }
 .img_div {
   height: 200px;
@@ -143,10 +146,7 @@ img {
 h3 {
   display: inline;
 }
-.star{
-  color: #ffdb58;
-  font-size: .7em;
-}
+
 .price_div {
   display: flex;
   justify-content: space-between;
@@ -154,4 +154,6 @@ h3 {
 .price_div h5{
   font-size: 1.2em;
 }
+
+
 </style>

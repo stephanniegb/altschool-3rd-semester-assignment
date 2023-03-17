@@ -76,20 +76,20 @@ onMounted(() => {
 <style scoped>
 main {
   display: flex;
-  background-color: rgb(17, 2, 2);
+  
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
 .container {
-  width: 50%;
-  background-color: white;
+  width: 80%;
+  border: 2px solid #131212;
   border-radius: 5px;
 }
 h1 {
   text-align: center;
   padding: 2%;
-  border-bottom: 1px solid silver;
+  border-bottom: 2px solid #131212;
   margin-bottom: 1.5rem;
 }
 form {
@@ -99,8 +99,8 @@ form {
   align-items: center;
 }
 .text-field {
-  border-bottom: 1px solid silver;
-  width: 50%;
+  border-bottom: 2px solid #131212;
+  width: 80%;
 }
 .text_input {
   width: 100%;
@@ -112,13 +112,32 @@ form {
   outline: none;
 }
 .log_btn {
-  width: 10%;
-  margin-bottom: 1rem;
-  padding: 1%;
-  font-size: 1rem;
-  background-color: rgb(56, 20, 155);
-  border-radius: 5px;
+  padding: 3%;
+  background-color: #ffdb58;
+  color: #131212;
   border: none;
-  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  font-family: "Fugaz One", cursive;
+}
+.log_btn:hover{
+  background-color: #6b76d4;
+  color: #ffdb58;
+}
+@media(min-width: 480px){
+  .container{
+    width: 70%;
+  }
+  .text-field{
+    width: 70%;
+  }
+}
+@media (min-width: 961px){
+  .container{
+    width: 50%;
+  }
+  .text-field{
+    width: 55%;
+  }
 }
 </style>

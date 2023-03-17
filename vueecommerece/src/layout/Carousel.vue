@@ -1,10 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div className="carousel">
-    <img :src="props.images[activeIndex]" alt="animal" />
+    <img :src="props.images[activeIndex]" alt="animal"  id="main_img" />
     <div className="carousel-smaller">
-      <img @click="handleIndexClick" v-for="(image, index) in props.images"
-      :key="index" :src="image" alt="product image" :data-index="index"/>
+      <div class="img_col" v-for="(image, index) in props.images"
+      :key="index">
+      <img @click="handleIndexClick"  :src="image" alt="product image" :data-index="index" style="width: 100%;" class="small_img"/>
+    </div> 
     </div>
   </div>
 </template>

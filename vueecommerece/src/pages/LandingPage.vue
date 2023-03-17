@@ -1,5 +1,6 @@
 <template>
   <main>
+    <button @click="handle">Clear</button>
     <div class="hero_wrap hero_1">
       <section class="headings">
         <h4>Trade-in-offer</h4>
@@ -167,6 +168,9 @@ const fetchCategories = async () => {
   products.value = resData.products.slice(1,6)
   loading.value = false;
 };
+const handle = () => {
+  localStorage.clear()
+}
 onMounted(() => {
   fetchCategories();
 });
