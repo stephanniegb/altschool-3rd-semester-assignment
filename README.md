@@ -33,7 +33,7 @@ Create a new vue js application using the cli then simulate a fake authenticatio
 - Semantic HTML5 markup
 - Flexbox
 - CSS Grid
-- [Vue](https://reactjs.org/) - JS library
+- [Vue](https://vuejs.org/) - JS library
 - Vue Router
 - Vuex
 
