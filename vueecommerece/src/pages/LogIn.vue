@@ -2,7 +2,8 @@
   <main>
     <div class="container">
       <h1>Login</h1>
-      <p v-if="isWrong" id="wrong" >Wrong email or password</p>
+      <p :class="isWrong ? 'wrong' : 'right'" >Wrong email or password</p>
+      <p :class="isNotregistered ? 'wrong' : 'right'" >You do not have an account...Sign up</p>
       <form @submit.prevent="loginUser">
         <div class="text-field">
           <label>
@@ -17,7 +18,6 @@
             />
           </label>
         </div>
-
         <div class="text-field">
           <label for="password">
             <input
@@ -31,12 +31,10 @@
             />
           </label>
         </div>
-
         <div>
           <p>Don't have an account? <span><router-link to="/signup">Sign up</router-link></span></p>
           
         </div>
-
         <input type="submit" value="Login" class="log_btn" />
       </form>
     </div>
@@ -53,24 +51,35 @@ mapActions(["loginUser"]);
 
 const loginUser = () => {
   store.commit("loginUser", userDetails.value);
+  store.dispatch('reset')
 };
+
+const isNotregistered = computed(() => store.state.isNotregistered);
 const isWrong = computed(() => store.state.isWrong);
 </script>
 
 <style scoped>
 main {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   height: 100vh;
 }
-#wrong{
+.right{
+  display:none;
+  margin: 0;
+  padding: 0;
+}
+.wrong{
   color: #d9042b;
-  line-height: 1.5;
-  letter-spacing: 2;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 .container {
+  margin-top: 2%;
   width: 80%;
+  height: 72%;
   border-radius: 5px;
   border: 2px solid #131212;
 }
@@ -83,10 +92,9 @@ h1 {
 form{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     align-items: center;
-
-
+    gap: .8rem;
+    flex-wrap: wrap;
 }
 .text-field{
     border-bottom: 2px solid #131212;
@@ -109,6 +117,7 @@ form{
   border: none;
   border-radius: 15px;
   cursor: pointer;
+  width: 30%;
   font-family: "Fugaz One", cursive;
 }
 .log_btn:hover{
@@ -118,6 +127,8 @@ form{
 @media(min-width: 480px){
   .container{
     width: 70%;
+    height: 70%;
+    margin-top: 4%;
   }
   .text-field{
     width: 70%;
@@ -126,9 +137,10 @@ form{
 @media (min-width: 961px){
   .container{
     width: 50%;
+    height: 60%;
   }
   .text-field{
-    width: 55%;
+    width: 60%;
   }
 }
 </style>

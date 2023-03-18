@@ -76,13 +76,13 @@ onMounted(() => {
 <style scoped>
 main {
   display: flex;
-  
-  align-items: center;
   justify-content: center;
   height: 100vh;
 }
 .container {
+  margin-top: 2%;
   width: 90%;
+  height: 80%;
   border: 2px solid #131212;
   border-radius: 5px;
 }
@@ -95,7 +95,7 @@ h1 {
 form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: .6rem;
   align-items: center;
 }
 .text-field {
@@ -127,6 +127,8 @@ form {
 @media(min-width: 480px){
   .container{
     width: 70%;
+    height: 50%;
+    margin-top: 4%;
   }
   .text-field{
     width: 70%;

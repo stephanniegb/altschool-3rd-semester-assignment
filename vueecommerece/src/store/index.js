@@ -6,6 +6,7 @@ export default createStore({
     newUser: {},
     userDetails: {},
     products: [],
+    isNotregistered: false,
     isWrong: false
   },
   getters: {
@@ -23,7 +24,7 @@ export default createStore({
       state.userDetails = payload
       const registeredUser = JSON.parse(localStorage.getItem('user'))
       if(!registeredUser){
-        state.isWrong = true
+        state.isNotregistered = true
       }
       if(payload.email === registeredUser.email && payload.password === registeredUser.password){
         localStorage.setItem('loggedInToken', Date.now())
@@ -44,5 +45,12 @@ export default createStore({
     }
 
   },
-  actions: {}
+  actions: {
+    reset(context){
+      setTimeout(() => {
+        context.state.isWrong = false
+        context.state.isNotregistered = false
+      }, 3000);
+    }
+  }
 })

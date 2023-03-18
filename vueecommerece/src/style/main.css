@@ -8,18 +8,48 @@
   background-color: #ffffff;
 }
 
-.banner {
-  background-image: url("../../assets/17973858.jpg");
+/* .banner {
+  background-image: url("../../assets/images/Depositphotos_278035664_S.jpg");
+} */
+
+/* .headings1{
+  background-image: url("../../assets/images/pexels-sora-\ small5935744\(4\)\ croped\ 2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top:2% ;
+
+
+
+
+} */
+.headings1{
+  margin-top: 2%;
+}
+.banner{
+  background-image: url('../../assets/images/Depositphotos_278035664_S.jpg');
+  background-repeat: repeat;
   background-size: contain;
 }
-.hero_1 {
-  background-image: url("../../assets/pexels-sora-shimazaki-5935744\(4\).jpg");
+.hero_1{
+  background-image: url("../../assets/images/pexels-sora-\ small5935744\(4\)\ croped\ 2.jpg");
   background-size: cover;
   width: 100%;
+  background-repeat: no-repeat;
+  /* margin: 2%; */
+}
+.hero_1 img {
+  display: none;
+  /* background-image: url("../../assets/pexels-sora-shimazaki-5935744\(4\).jpg");
+  background-size: cover;
+  width: 100%; */
 }
 .hero_2 {
-  background-image: url("../../assets/pexels-kindel-media-6868619.jpg");
-  background-size: cover;
+  background-image: url("../../assets//images/pexels-small-media-6868619.jpg");
+  /* background-size: cover; */
+  width: 100%;
+}
+.hero3{
+  background-image: url('../../assets//images/pexels-borko-manigoda-1778412.jpg');
   width: 100%;
 }
 
@@ -97,10 +127,10 @@ p {
   border-color: #333;
   opacity: 0.6;
 }
-.banner {
+/* .banner {
   height: 200px;
-  object-fit: contain;
-}
+  
+} */
 .view_button {
   background-color: #ffdb58;
   color: #131212;
@@ -170,7 +200,23 @@ figure {
 .price_div h5 {
   font-size: 1.2em;
 }
-@media (min-width: 480px) {
+
+@media (min-width: 481px) {
+  .headings1{
+/*     
+    background-image: url('../../assets/images/pexels-sora-\ small5935744\(4\).jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    margin-top:2% ; */
+    
+  }
+  .hero_1{
+    background-image: url('../../assets/images/pexels-sora-\ small5935744\(4\).jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    /* margin-top:2% ; */
+
+  }
   .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -178,7 +224,18 @@ figure {
     padding: 2%;
   }
 }
+@media(min-width:641px){
+  /* .headings1{
+    background-image: url('../../assets/images/pexels-sora-shimazaki-5935744\(5\)tablet.jpg');
+  } */
+  .hero_1{
+    background-image: url('../../assets/images/pexels-sora-shimazaki-5935744\(5\)tablet.jpg');
+  }
+}
 @media (min-width: 961px) {
+  .headings1{
+    background-image: none;
+  }
   .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

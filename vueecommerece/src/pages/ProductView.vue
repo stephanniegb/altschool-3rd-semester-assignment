@@ -53,11 +53,7 @@
       </p>
       </div>
     </div>
-  </section>
-  <section class="might_like">
-    <h2>You might also like</h2>
-
-  </section>
+  </section>  
 </template>
 
 <script setup>

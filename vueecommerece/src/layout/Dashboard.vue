@@ -171,6 +171,7 @@ input[type="checkbox"] {
   display: none;
   font-size: 24px;
   user-select: none;
+  color: #9099f1;
 }
 button {
   background-color: rgb(107, 118, 212);
@@ -188,6 +189,12 @@ button:hover {
 @media (max-width: 481px) {
 }
 @media (max-width: 768px) {
+  .nav-container{
+    padding: 5%;
+  }
+  .menu li{
+  padding: 1.2em 1em;
+  }
   footer p {
     font-size: 0.9em;
   }

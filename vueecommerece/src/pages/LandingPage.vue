@@ -9,7 +9,10 @@
         <router-link to="/products" class="btn">Shop Now!</router-link>
       </section>
       <section id="hero">
-        <img src="../../assets/pexels-sora-shimazaki-5935744(4).jpg" alt="hero image"/>
+        <img
+          src="../../assets/pexels-sora-shimazaki-5935744(4).jpg"
+          alt="hero image"
+        />
       </section>
     </div>
     <div>
@@ -66,10 +69,13 @@
       </div>
     </div>
 
-
     <div class="hero_wrap2">
       <section id="hero2">
-        <img src="../../assets/pexels-kindel-media-6868619.jpg" alt="" class="hero_img" />
+        <img
+          src="../../assets/pexels-kindel-media-6868619.jpg"
+          alt=""
+          class="hero_img"
+        />
       </section>
 
       <div class="headings categories" v-if="loading">
@@ -77,27 +83,21 @@
       </div>
 
       <section v-else-if="!loading" class="headings categories">
-        
         <h2>Explore our categories...</h2>
         <div class="categories_wrapper">
-          
           <button
             v-for="category in categories"
             :key="category"
             @click="$router.push('/products')"
             class="category"
           >
-            
             {{ category }}
             <font-awesome-icon icon="fa-solid fa-chevron-right" />
           </button>
         </div>
       </section>
     </div>
-    <div class="banner" style="height: 200px">
-      <h4>NEW ARRIVALS SUPER SALES!!!!!</h4>
-      <h4>UP TO 45% OFF</h4>
-    </div>
+    <div class="banner" style="height: 200px"></div>
     <div class="headings categories" v-if="loading">
       <div class="loader"></div>
     </div>
@@ -108,7 +108,7 @@
           v-for="product in products"
           :key="product.id"
           class="product"
-          @click="$router.push(`/products/${product.id}`)"
+          @click="$router.push(`/products`)"
         >
           <figure>
             <div class="img_div">
@@ -147,8 +147,12 @@
         <p>save more with coupons and up to 20% off</p>
         <router-link to="/products" class="btn">Shop Now!</router-link>
       </section>
-      <section id="hero">
-        <img src="../../assets/pexels-borko-manigoda-1778412.jpg" alt="" class="hero_img" />
+      <section class="hero3">
+        <img
+          src="../../assets/pexels-borko-manigoda-1778412.jpg"
+          alt=""
+          class="hero_img"
+        />
       </section>
     </div>
   </main>
@@ -177,32 +181,26 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.headings1{
+main {
   display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    justify-content: flex-start;
-    align-items: flex-start;
-
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.headings1 {
+  height: 65vh;
+  text-align: start;
 }
 .headings {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.7rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.7rem;
+}
 .hero_wrap {
   display: flex;
   flex-direction: column;
   padding: 2%;
-}
-
-.hero_1 {
-  background-image: url("../../assets/pexels-sora-shimazaki-5935744\(4\).jpg");
-  background-size: cover;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
 }
 
 #hero_3 {
@@ -212,7 +210,6 @@ onMounted(() => {
   align-items: center;
 }
 .features_div h2 {
-  font-size: 2em;
   font-weight: 800;
 }
 .features_wrapper h2 {
@@ -229,38 +226,22 @@ onMounted(() => {
 .feature p {
   font-size: 0.8em;
 }
-.banner {
-  color: #d9042b;
-  display: flex;
-  /* flex-direction: column; */
-  align-content: center;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.hero_img{
-  height: 200px;
-}
-.banner h4 {
-  font-size: 1.5rem;
-}
-.headings1 h1{
+
+.headings1 h1 {
   color: #6b76d4;
-  font-size: 2.5em;
   font-family: "Fugaz One", cursive;
 }
-.headings h1 {
+.headings1 h1 {
   color: #6b76d4;
-  font-size: 2.5em;
   font-family: "Fugaz One", cursive;
 }
-.headings1 p{
-  color: rgb(121, 117, 117);
+.headings1 p {
+  font-size: 0.7em;
 }
 .headings p {
   color: rgb(121, 117, 117);
 }
-.headings1 .btn{
+.headings1 .btn {
   padding: 2%;
   background-color: #ffdb58;
   color: #131212;
@@ -284,16 +265,20 @@ onMounted(() => {
   background-color: #6b76d4;
   color: #ffdb58;
 }
+.headings1 .btn:hover {
+  background-color: #6b76d4;
+  color: #ffdb58;
+}
 .categories_wrapper {
   display: grid;
   flex-basis: 50%;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   gap: 0.5rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 .category {
-  padding: 2%;
+  padding: 3%;
   border: 2px solid #131212;
   font-family: "Tilt Warp", cursive;
   background-color: transparent;
@@ -303,12 +288,24 @@ onMounted(() => {
   background-color: #ffdb58;
   box-shadow: 10px 10px 0px #d0d0d0;
   cursor: pointer;
-color: #6b76d4; 
- } 
+  color: #6b76d4;
+}
+@media (min-width: 641px) {
+  .headings1 {
+    height: 55vh;
+  }
+  .headings1 h1 {
+    font-size: 1.8em;
+  }
+  .headings1 p {
+    font-size: 1.3em;
+  }
+}
 @media (min-width: 961px) {
   .hero_1 img {
     display: block;
   }
+
   .hero_1 {
     display: flex;
     background-image: none;
@@ -320,7 +317,7 @@ color: #6b76d4;
     grid-template-columns: 50% 50%;
     padding: 2%;
   }
-  .hero_wrap2{
+  .hero_wrap2 {
     display: grid;
     grid-template-columns: 40% 60%;
     column-gap: 1rem;
@@ -337,7 +334,6 @@ color: #6b76d4;
     flex-direction: column;
     align-items: center;
     gap: 0.7rem;
-    
   }
 
   #hero {
@@ -361,19 +357,12 @@ color: #6b76d4;
   .feature p {
     font-size: 1em;
   }
-  .banner {
-    background-repeat: repeat;
-  }
-  .banner h4 {
-    padding: 4%;
-    font-size: 2.3em;
-  }
 
   .headings {
     justify-content: center;
     align-items: center;
   }
-  .headings h1 {
+  .headings1 h1 {
     font-size: 4em;
   }
   .categories_wrapper {
