@@ -23,7 +23,7 @@ Create a new vue js application using the cli then simulate a fake authenticatio
 ### Links
 
 - Solution URL: [Code Url](https://github.com/stephanniegb/vue-e-commerce)
-- Live Site URL: [Live site URL](https://stepahnieegbuonualtschgithubproject.netlify.app/)
+- Live Site URL: [Live site URL](https://goshopaltschstephegb.netlify.app/)
 
 
 ## My process
